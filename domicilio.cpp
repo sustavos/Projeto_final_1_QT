@@ -25,6 +25,16 @@ QString Domicilio::getTipo() const
     return tipo;
 }
 
+QString Domicilio::getNumApt() const
+{
+    return numApt;
+}
+
+void Domicilio::setNumApt(const QString &value)
+{
+    numApt = value;
+}
+
 void Domicilio::setTipo(const QString &value)
 {
     tipo = value;
@@ -126,11 +136,12 @@ QString Domicilio::definirGrupoSocial()
     }
 }
 
-Domicilio::Domicilio(QString c, QString n, QString t, QString e, QString a, QString es, QString l, int p, double r)
+Domicilio::Domicilio(QString c, QString n, QString t, QString nt, QString e, QString a, QString es, QString l, int p, double r)
 {
     setCep(c);
     setNumero(n);
     setTipo(t);
+    setNumApt(nt);
     setEnergia(e);
     setAgua(a);
     setEsgoto(es);

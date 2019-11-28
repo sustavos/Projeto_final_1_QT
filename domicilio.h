@@ -6,21 +6,21 @@
 class Domicilio{
 
 private:
+
     QString cep;
     QString numero;
-
     QString tipo;
+    QString numApt;
     QString energia;
     QString agua;
     QString esgoto;
     QString lixo;
-
     int qnt_pessoas;
     double renda;
 
 public:
     Domicilio();
-    Domicilio(QString c, QString n, QString t, QString e, QString a, QString es, QString l, int p, double r);
+    Domicilio(QString c, QString n, QString t, QString nt, QString e, QString a, QString es, QString l, int p, double r);
 
     QString getCep() const;
     void setCep(const QString &value);
@@ -28,6 +28,8 @@ public:
     void setNumero(const QString &value);
     QString getTipo() const;
     void setTipo(const QString &value);
+    QString getNumApt() const;
+    void setNumApt(const QString &value);
 
     QString getEnergia() const;
     void setEnergia(const QString &value);
@@ -45,7 +47,6 @@ public:
 
     QString definirDensidade();
     QString definirGrupoSocial();
-
 };
 
 #endif // DOMICILIO_H
