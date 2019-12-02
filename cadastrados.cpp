@@ -13,12 +13,21 @@ bool Cadastrados::VerificarExistencia(Domicilio d)
 {
     if(lista.size() >= 1){
         for(int i = 0; i < lista.size(); i++){
-            if((lista[i].getCep() == d.getCep()) and (lista[i].getNumero() == d.getNumero()) and (lista[i].getNumApt() == d.getNumApt())){
-                return 1;
+            if((lista[i].getCep() == d.getCep()) and (lista[i].getNumero() == d.getNumero())){
+                if(lista[i].getTipo() == d.getTipo()){
+                    if(lista[i].getNumApt() == d.getNumApt()){
+                        return 1;
+                    }
+                }else{
+                    return 1;
+                }
+
             }
+
         }
-    }
-    return 0;
+   }
+   return 0;
+
 }
 
 int Cadastrados::size()
