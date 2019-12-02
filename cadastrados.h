@@ -4,6 +4,8 @@
 #include <QVector>
 #include <algorithm>
 #include <QObject>
+#include <QFile>
+#include <QFileDialog>
 #include "domicilio.h"
 
 class Cadastrados
@@ -15,10 +17,32 @@ private:
 public:
     Cadastrados();
     void inserirDomicilio(Domicilio d);
+    bool VerificarExistencia(Domicilio d);
 
     void ordenarCEP();
     void ordernarNum();
     void ordernarRenda();
+
+    int getCasasCadastradas();
+    int getAptCadastrados();
+    int getComodosCadastrados();
+    int getOutros();
+
+    int getSemEnergia();
+    int getSemAgua();
+    int getSemEsgoto();
+    int getSemLixo();
+
+    double getMaiorRenda();
+    double getMenorRenda();
+    double getRendaMedia();
+
+    int getMenorPop();
+    int getMaiorPop();
+    int getMediaPop();
+
+    bool carregarDados(QString file);
+    bool salvarDados(QString file);
 
     int size();
     Domicilio operator[](int indice);

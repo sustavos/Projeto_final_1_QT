@@ -87,7 +87,12 @@ int Domicilio::getQnt_pessoas() const
 
 void Domicilio::setQnt_pessoas(int value)
 {
-    qnt_pessoas = value;
+    if(value >= 1){
+        qnt_pessoas = value;
+    }else{
+        qnt_pessoas = 1; // Impede de adicionar famílias com 0 pessoas
+    }
+
 }
 
 double Domicilio::getRenda() const
@@ -103,12 +108,12 @@ void Domicilio::setRenda(double value)
 QString Domicilio::definirDensidade()
 {
     if(qnt_pessoas<=3){
-        return "Baixa";
+        return "Baixo";
     }else{
         if(qnt_pessoas<=5){
-            return "Média";
+            return "Médio";
         }else{
-            return "Alta";
+            return "Alto";
         }
     }
 }
@@ -126,11 +131,7 @@ QString Domicilio::definirGrupoSocial()
             if(renda_capita <= 291){
                 return "Vulnerável";
             }else{
-                if(renda_capita <= 1019){
-                    return "Médio";
-                }else{
-                    return "Alto";
-                }
+               return "Fora de risco";
             }
         }
     }
