@@ -7,20 +7,11 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    ui->tw_tabela->setColumnWidth(0,70);
-    ui->tw_tabela->setColumnWidth(1,20);
+    ui->tw_tabela->setColumnWidth(0,110);
+    ui->tw_tabela->setColumnWidth(1,70);
     ui->tw_tabela->setColumnWidth(2,110);
     ui->tw_tabela->setColumnWidth(3,100);
 
-    ui->tw_tabela->setColumnWidth(4,35);
-    ui->tw_tabela->setColumnWidth(5,35);
-    ui->tw_tabela->setColumnWidth(6,35);
-    ui->tw_tabela->setColumnWidth(7,35);
-
-    ui->tw_tabela->setColumnWidth(8,110);
-    ui->tw_tabela->setColumnWidth(9,110);
-    ui->tw_tabela->setColumnWidth(10,100);
-    ui->tw_tabela->setColumnWidth(11,80);
     ui->tw_tabela->verticalHeader()->setVisible(false);
 }
 
@@ -130,15 +121,6 @@ void MainWindow::inserirNaTabela(Domicilio c, int linha)
     ui->tw_tabela->setItem(linha,2, new QTableWidgetItem(c.getTipo()));
     ui->tw_tabela->setItem(linha,3, new QTableWidgetItem(c.getNumApt()));
 
-    ui->tw_tabela->setItem(linha,4, new QTableWidgetItem(c.getEnergia()));
-    ui->tw_tabela->setItem(linha,5, new QTableWidgetItem(c.getAgua()));
-    ui->tw_tabela->setItem(linha,6, new QTableWidgetItem(c.getEsgoto()));
-    ui->tw_tabela->setItem(linha,7, new QTableWidgetItem(c.getLixo()));
-
-    ui->tw_tabela->setItem(linha,8, new QTableWidgetItem(QString::number(c.getQnt_pessoas())));
-    ui->tw_tabela->setItem(linha,9, new QTableWidgetItem(c.definirDensidade()));
-    ui->tw_tabela->setItem(linha,10, new QTableWidgetItem("R$"+QString::number(c.getRenda())));
-    ui->tw_tabela->setItem(linha,11, new QTableWidgetItem(c.definirGrupoSocial()));
 }
 
 bool MainWindow::verificarFaltantes()
@@ -207,14 +189,6 @@ void MainWindow::on_btn_ordenarNUM_clicked()
     }
 }
 
-void MainWindow::on_btn_ordenarRENDA_clicked()
-{
-    cadastrados.ordernarRenda();
-    ui->tw_tabela->clearContents();
-    for(int i=0; i < cadastrados.size(); i++){
-        inserirNaTabela(cadastrados[i],i);
-    }
-}
 
 void MainWindow::on_actionSalvar_Arquivo_triggered()
 {

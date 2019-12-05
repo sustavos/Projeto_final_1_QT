@@ -29,7 +29,6 @@ private slots:
     void on_btn_maps_clicked();
     void on_btn_ordenarCEP_clicked();
     void on_btn_ordenarNUM_clicked();
-    void on_btn_ordenarRENDA_clicked();
 
     void on_actionSalvar_Arquivo_triggered();
 
