@@ -26,10 +26,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += main.cpp\
         cadastrados.cpp \
         domicilio.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    editdialog.cpp
 
 HEADERS  += mainwindow.h \
     cadastrados.h \
-    domicilio.h
+    domicilio.h \
+    editdialog.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    editdialog.ui

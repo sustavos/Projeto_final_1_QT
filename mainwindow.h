@@ -31,7 +31,6 @@ private slots:
     void on_btn_ordenarNUM_clicked();
 
     void on_actionSalvar_Arquivo_triggered();
-
     void on_actionCarregar_Arquivo_triggered();
 
 private:

@@ -1,9 +1,6 @@
 #include "cadastrados.h"
 
-Cadastrados::Cadastrados()
-{
-
-}
+Cadastrados::Cadastrados(){}
 
 void Cadastrados::inserirDomicilio(Domicilio d){
     lista.push_back(d);
@@ -21,9 +18,7 @@ bool Cadastrados::VerificarExistencia(Domicilio d)
                 }else{
                     return 1;
                 }
-
             }
-
         }
    }
    return 0;
@@ -260,13 +255,13 @@ bool Cadastrados::carregarDados(QString file)
 
 bool Cadastrados::salvarDados(QString file)
 {
-    QFile arquivo(file);
+    QFile arquivo(file + ".csv");
     arquivo.open(QIODevice::WriteOnly);
 
     if(arquivo.isOpen())
     {
         for(auto a : lista){
-            QString linha = a.getCep() + "," + a.getNumero() + "," + a.getTipo() + "," + a.getNumApt() + "," + a.getEnergia() + "," + a.getAgua() + "," + a.getEsgoto() + "," + a.getLixo() + "," + QString::number(a.getQnt_pessoas()) + "," + QString::number(a.getRenda());
+            QString linha = a.getCep() + "," + a.getNumero() + "," + a.getTipo() + "," + a.getNumApt() + "," + a.getEnergia() + "," + a.getAgua() + "," + a.getEsgoto() + "," + a.getLixo() + "," + QString::number(a.getQnt_pessoas()) + "," + QString::number(a.getRenda()) + "\n";
             arquivo.write(linha.toLocal8Bit());
         }
         arquivo.close();
@@ -275,6 +270,11 @@ bool Cadastrados::salvarDados(QString file)
         return false;
     }
 
+}
+
+void Cadastrados::limparVec()
+{
+ lista.erase(lista.begin(),lista.end());
 }
 
 bool compararCEP(Domicilio d1, Domicilio d2)

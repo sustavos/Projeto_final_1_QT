@@ -198,24 +198,35 @@ void MainWindow::on_actionSalvar_Arquivo_triggered()
     if(cadastrados.salvarDados(filename) == true){
         QMessageBox::information(this,"Salvar Arquivo","Arquivo salvo com sucesso!");
     }else{
-        QMessageBox::critical(this,"Erro", "O arquivo não foi salvo.");
+        QMessageBox::critical(this,"Erro", "Não foi possível salvar o arquivo.");
     }
 }
 
 void MainWindow::on_actionCarregar_Arquivo_triggered()
 {
+    cadastrados.limparVec();
+
     QString filename;
     filename = QFileDialog::getOpenFileName(this, "Carregar Arquivo", "", "*.csv");
 
     if(cadastrados.carregarDados(filename)){
         QMessageBox::critical(this,"Erro","Arquivo já carregado");
     }else{
+
         ui->tw_tabela->clearContents();
+
+        int qtdLinhas = ui->tw_tabela->rowCount();
+
+        for(int i = 0; i < qtdLinhas ; i++){
+            ui->tw_tabela->removeRow(0);
+        }
 
         for(int i = 0; i < cadastrados.size(); i++){
             ui->tw_tabela->insertRow(i);
             inserirNaTabela(cadastrados[i],i);
         }
+
+        QMessageBox::information(this,"Carregar Arquivo","Arquivo carregado com sucesso!");
 
     }
 }
