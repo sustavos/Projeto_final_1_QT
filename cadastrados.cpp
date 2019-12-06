@@ -215,6 +215,7 @@ int Cadastrados::getMediaPop()
 bool Cadastrados::carregarDados(QString file)
 {
     QFile arquivo(file);
+
     if(arquivo.isOpen())
     {
         return true;
@@ -227,6 +228,7 @@ bool Cadastrados::carregarDados(QString file)
         QStringList dados;
 
         while(!arquivo.atEnd()){
+
             Domicilio temp;
 
             linha = arquivo.readLine();
@@ -274,7 +276,12 @@ bool Cadastrados::salvarDados(QString file)
 
 void Cadastrados::limparVec()
 {
- lista.erase(lista.begin(),lista.end());
+    lista.erase(lista.begin(),lista.end());
+}
+
+void Cadastrados::erase(int i)
+{
+    lista.erase(lista.begin()+i);
 }
 
 bool compararCEP(Domicilio d1, Domicilio d2)

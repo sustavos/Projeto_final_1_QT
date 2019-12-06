@@ -45,6 +45,7 @@ public:
     bool salvarDados(QString file);
 
     void limparVec();
+    void erase(int i);
     int size();
     Domicilio operator[](int indice);
 };

@@ -11,6 +11,7 @@
 #include <QMessageBox>
 #include "domicilio.h"
 #include "cadastrados.h"
+#include "editdialog.h"
 
 namespace Ui {
 class MainWindow;
@@ -33,12 +34,16 @@ private slots:
     void on_actionSalvar_Arquivo_triggered();
     void on_actionCarregar_Arquivo_triggered();
 
+    void on_tw_tabela_cellDoubleClicked(int row, int column);
+
+
 private:
     Ui::MainWindow *ui;
 
     void inserirNaTabela(Domicilio c, int linha);
     bool verificarFaltantes();
     void atualizarEstatisticas();
+    void atualizarTabela();
 
     Cadastrados cadastrados;
 };

@@ -12,7 +12,11 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->tw_tabela->setColumnWidth(2,110);
     ui->tw_tabela->setColumnWidth(3,100);
 
+    QStringList cabecalhos = {"CEP", "Nº", "Tipo", "Complemento"};
+    ui->tw_tabela->setHorizontalHeaderLabels(cabecalhos);
     ui->tw_tabela->verticalHeader()->setVisible(false);
+    ui->tw_tabela->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    ui->tw_tabela->setSelectionBehavior(QAbstractItemView::SelectRows);
 }
 
 MainWindow::~MainWindow()
@@ -29,13 +33,16 @@ void MainWindow::on_btn_cadastrar_clicked()
         QString numApt = "";
         if(ui->rb_casa->isChecked()){
             tipo = "Casa";
+            numApt = "-";
         }else if(ui->rb_apt->isChecked()){
             tipo = "Apartamento";
             numApt = ui->le_complemento->text();
         }else if(ui->rb_comodo->isChecked()){
             tipo = "Cômodo";
+            numApt = "-";
         }else if(ui->rb_outro->isChecked()){
             tipo = ui->le_outro->text();
+            numApt = "-";
         }
         QString energ;
         if(ui->rb_sim_ee->isChecked()){
@@ -70,14 +77,6 @@ void MainWindow::on_btn_cadastrar_clicked()
 
             QMessageBox::critical(this,"Erro","O domicílio já foi cadastrado.");
 
-            ui->le_cep->clear();
-            ui->le_num->clear();
-            ui->le_outro->clear();
-            ui->le_renda->clear();
-            ui->le_numMembros->clear();
-            ui->le_complemento->clear();
-            ui->le_cep->setFocus();
-
         }else{
 
             int qtd_linhas = ui->tw_tabela->rowCount();
@@ -87,14 +86,6 @@ void MainWindow::on_btn_cadastrar_clicked()
 
             QMessageBox::information(this,"Cadastro","Cadastro realizado com sucesso!");
 
-            ui->le_cep->clear();
-            ui->le_num->clear();
-            ui->le_outro->clear();
-            ui->le_renda->clear();
-            ui->le_numMembros->clear();
-            ui->le_complemento->clear();
-            ui->le_cep->setFocus();
-
             cadastrados.inserirDomicilio(domicilio);
 
             atualizarEstatisticas();
@@ -103,14 +94,51 @@ void MainWindow::on_btn_cadastrar_clicked()
     }else{
 
         QMessageBox::critical(this,"Erro","Dados Incompletos, cadastro não realizado!");
-
-        ui->le_cep->clear();
-        ui->le_num->clear();
-        ui->le_outro->clear();
-        ui->le_renda->clear();
-        ui->le_numMembros->clear();
-        ui->le_cep->setFocus();
     }
+
+    ui->le_cep->clear();
+    ui->le_num->clear();
+    ui->le_outro->clear();
+    ui->le_renda->clear();
+    ui->le_numMembros->clear();
+    ui->le_complemento->clear();
+    ui->rb_casa->setAutoExclusive(false);
+    ui->rb_casa->setChecked(false);
+    ui->rb_casa->setAutoExclusive(true);
+    ui->rb_apt->setAutoExclusive(false);
+    ui->rb_apt->setChecked(false);
+    ui->rb_apt->setAutoExclusive(true);
+    ui->rb_comodo->setAutoExclusive(false);
+    ui->rb_comodo->setChecked(false);
+    ui->rb_comodo->setAutoExclusive(true);
+    ui->rb_outro->setAutoExclusive(false);
+    ui->rb_outro->setChecked(false);
+    ui->rb_outro->setAutoExclusive(true);
+    ui->rb_sim_ae->setAutoExclusive(false);
+    ui->rb_sim_ae->setChecked(false);
+    ui->rb_sim_ae->setAutoExclusive(true);
+    ui->rb_sim_cl->setAutoExclusive(false);
+    ui->rb_sim_cl->setChecked(false);
+    ui->rb_sim_cl->setAutoExclusive(true);
+    ui->rb_sim_ee->setAutoExclusive(false);
+    ui->rb_sim_ee->setChecked(false);
+    ui->rb_sim_ee->setAutoExclusive(true);
+    ui->rb_sim_es->setAutoExclusive(false);
+    ui->rb_sim_es->setChecked(false);
+    ui->rb_sim_es->setAutoExclusive(true);
+    ui->rb_nao_ae->setAutoExclusive(false);
+    ui->rb_nao_ae->setChecked(false);
+    ui->rb_nao_ae->setAutoExclusive(true);
+    ui->rb_nao_cl->setAutoExclusive(false);
+    ui->rb_nao_cl->setChecked(false);
+    ui->rb_nao_cl->setAutoExclusive(true);
+    ui->rb_nao_ee->setAutoExclusive(false);
+    ui->rb_nao_ee->setChecked(false);
+    ui->rb_nao_ee->setAutoExclusive(true);
+    ui->rb_nao_es->setAutoExclusive(false);
+    ui->rb_nao_es->setChecked(false);
+    ui->rb_nao_es->setAutoExclusive(true);
+    ui->le_cep->setFocus();
 
 }
 
@@ -214,7 +242,6 @@ void MainWindow::on_actionCarregar_Arquivo_triggered()
     }else{
 
         ui->tw_tabela->clearContents();
-
         int qtdLinhas = ui->tw_tabela->rowCount();
 
         for(int i = 0; i < qtdLinhas ; i++){
@@ -228,5 +255,42 @@ void MainWindow::on_actionCarregar_Arquivo_triggered()
 
         QMessageBox::information(this,"Carregar Arquivo","Arquivo carregado com sucesso!");
 
+    }
+}
+
+void MainWindow::on_tw_tabela_cellDoubleClicked(int row, int column)
+{
+    EditDialog act;
+
+    act.addObjeto(cadastrados[row]);
+    qDebug() << cadastrados[row].getCep();
+    act.setWindowTitle("Editar Domicílio");
+    act.setModal(true);
+    act.exec();
+
+    column = 0;
+
+    atualizarTabela();
+
+    if(act.getApagar()){
+
+        cadastrados.erase(row);
+    }
+
+    if(act.getNovo()){
+        cadastrados[row]=act.getObjeto();
+        atualizarTabela();
+    }
+}
+
+void MainWindow::atualizarTabela()
+{
+    ui->tw_tabela->setRowCount(0);
+
+    for(int i = 0; i < cadastrados.size(); i++){
+
+        int qtd_linhas = ui->tw_tabela->rowCount();
+        ui->tw_tabela->insertRow(qtd_linhas);
+        inserirNaTabela(cadastrados[i], qtd_linhas);
     }
 }

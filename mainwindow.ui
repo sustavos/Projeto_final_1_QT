@@ -7,13 +7,13 @@
     <x>0</x>
     <y>0</y>
     <width>511</width>
-    <height>593</height>
+    <height>553</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>511</width>
-    <height>593</height>
+    <width>0</width>
+    <height>0</height>
    </size>
   </property>
   <property name="maximumSize">
@@ -37,18 +37,18 @@
      <colorrole role="Base">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>208</red>
-        <green>218</green>
-        <blue>241</blue>
+        <red>73</red>
+        <green>137</green>
+        <blue>255</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>208</red>
-        <green>218</green>
-        <blue>241</blue>
+        <red>73</red>
+        <green>137</green>
+        <blue>255</blue>
        </color>
       </brush>
      </colorrole>
@@ -66,18 +66,18 @@
      <colorrole role="Base">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>208</red>
-        <green>218</green>
-        <blue>241</blue>
+        <red>73</red>
+        <green>137</green>
+        <blue>255</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>208</red>
-        <green>218</green>
-        <blue>241</blue>
+        <red>73</red>
+        <green>137</green>
+        <blue>255</blue>
        </color>
       </brush>
      </colorrole>
@@ -95,18 +95,18 @@
      <colorrole role="Base">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>208</red>
-        <green>218</green>
-        <blue>241</blue>
+        <red>73</red>
+        <green>137</green>
+        <blue>255</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>208</red>
-        <green>218</green>
-        <blue>241</blue>
+        <red>73</red>
+        <green>137</green>
+        <blue>255</blue>
        </color>
       </brush>
      </colorrole>
@@ -150,12 +150,19 @@
       <height>601</height>
      </size>
     </property>
+    <property name="sizeIncrement">
+     <size>
+      <width>561</width>
+      <height>601</height>
+     </size>
+    </property>
     <property name="autoFillBackground">
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(208, 218, 241);
-border-color: rgb(208, 218, 241);</string>
+     <string notr="true">background-color: rgb(73, 137, 255);
+border-color: rgb(73, 137, 255);
+</string>
     </property>
     <property name="currentIndex">
      <number>0</number>
@@ -263,7 +270,7 @@ border-color: rgb(208, 218, 241);</string>
         <rect>
          <x>11</x>
          <y>10</y>
-         <width>215</width>
+         <width>161</width>
          <height>30</height>
         </rect>
        </property>
@@ -294,7 +301,7 @@ border-color: rgb(208, 218, 241);</string>
         <x>10</x>
         <y>170</y>
         <width>491</width>
-        <height>221</height>
+        <height>181</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -323,8 +330,8 @@ border-color: rgb(208, 218, 241);</string>
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>160</y>
-         <width>464</width>
+         <y>130</y>
+         <width>451</width>
          <height>25</height>
         </rect>
        </property>
@@ -366,8 +373,8 @@ border-color: rgb(208, 218, 241);</string>
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>190</y>
-         <width>448</width>
+         <y>150</y>
+         <width>451</width>
          <height>25</height>
         </rect>
        </property>
@@ -409,8 +416,8 @@ border-color: rgb(208, 218, 241);</string>
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>100</y>
-         <width>445</width>
+         <y>90</y>
+         <width>451</width>
          <height>25</height>
         </rect>
        </property>
@@ -452,7 +459,7 @@ border-color: rgb(208, 218, 241);</string>
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>130</y>
+         <y>110</y>
          <width>451</width>
          <height>25</height>
         </rect>
@@ -495,12 +502,12 @@ border-color: rgb(208, 218, 241);</string>
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>50</y>
+         <y>40</y>
          <width>470</width>
-         <height>64</height>
+         <height>51</height>
         </rect>
        </property>
-       <layout class="QHBoxLayout" name="horizontalLayout_17">
+       <layout class="QHBoxLayout" name="horizontalLayout_17" stretch="0,0">
         <item>
          <widget class="QLabel" name="label_6">
           <property name="text">
@@ -536,6 +543,9 @@ border-color: rgb(208, 218, 241);</string>
           </item>
           <item>
            <layout class="QHBoxLayout" name="horizontalLayout_18">
+            <property name="spacing">
+             <number>6</number>
+            </property>
             <item>
              <widget class="QRadioButton" name="rb_comodo">
               <property name="text">
@@ -564,7 +574,7 @@ border-color: rgb(208, 218, 241);</string>
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>400</y>
+        <y>360</y>
         <width>491</width>
         <height>80</height>
        </rect>
@@ -642,9 +652,9 @@ border-color: rgb(208, 218, 241);</string>
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>490</y>
+        <y>450</y>
         <width>491</width>
-        <height>41</height>
+        <height>31</height>
        </rect>
       </property>
       <property name="font">
@@ -657,7 +667,7 @@ border-color: rgb(208, 218, 241);</string>
        <bool>false</bool>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color:rgb(230, 230, 230);</string>
+       <string notr="true">background-color: rgb(230, 230, 230);</string>
       </property>
       <property name="text">
        <string>CADASTRAR!</string>
@@ -666,7 +676,7 @@ border-color: rgb(208, 218, 241);</string>
        <bool>false</bool>
       </property>
       <property name="default">
-       <bool>true</bool>
+       <bool>false</bool>
       </property>
       <property name="flat">
        <bool>false</bool>
@@ -684,9 +694,9 @@ border-color: rgb(208, 218, 241);</string>
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>60</y>
+        <y>70</y>
         <width>491</width>
-        <height>401</height>
+        <height>411</height>
        </rect>
       </property>
       <property name="sizePolicy">
@@ -1039,6 +1049,9 @@ alternate-background-color: rgb(226, 226, 226);</string>
            <property name="text">
             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;-&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
           </widget>
          </item>
         </layout>
@@ -1051,7 +1064,7 @@ alternate-background-color: rgb(226, 226, 226);</string>
         <x>10</x>
         <y>60</y>
         <width>491</width>
-        <height>92</height>
+        <height>121</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -1118,12 +1131,18 @@ alternate-background-color: rgb(226, 226, 226);</string>
           <property name="text">
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;-&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
          </widget>
         </item>
         <item>
          <widget class="QLabel" name="tb_apt">
           <property name="text">
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;-&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -1132,12 +1151,18 @@ alternate-background-color: rgb(226, 226, 226);</string>
           <property name="text">
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;-&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
          </widget>
         </item>
         <item>
          <widget class="QLabel" name="tb_outro">
           <property name="text">
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;-&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -1148,9 +1173,9 @@ alternate-background-color: rgb(226, 226, 226);</string>
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>160</y>
+        <y>190</y>
         <width>491</width>
-        <height>91</height>
+        <height>121</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -1217,12 +1242,18 @@ alternate-background-color: rgb(226, 226, 226);</string>
           <property name="text">
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;-&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
          </widget>
         </item>
         <item>
          <widget class="QLabel" name="tb_semAgua">
           <property name="text">
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;-&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -1231,12 +1262,18 @@ alternate-background-color: rgb(226, 226, 226);</string>
           <property name="text">
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;-&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
          </widget>
         </item>
         <item>
          <widget class="QLabel" name="tb_semLixo">
           <property name="text">
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;-&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -1247,9 +1284,9 @@ alternate-background-color: rgb(226, 226, 226);</string>
       <property name="geometry">
        <rect>
         <x>220</x>
-        <y>260</y>
+        <y>320</y>
         <width>281</width>
-        <height>81</height>
+        <height>91</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -1303,6 +1340,9 @@ alternate-background-color: rgb(226, 226, 226);</string>
             <property name="text">
              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;-&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
            </widget>
           </item>
           <item>
@@ -1310,12 +1350,18 @@ alternate-background-color: rgb(226, 226, 226);</string>
             <property name="text">
              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;-&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
            </widget>
           </item>
           <item>
            <widget class="QLabel" name="tb_medPop">
             <property name="text">
              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;-&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
             </property>
            </widget>
           </item>
@@ -1328,9 +1374,9 @@ alternate-background-color: rgb(226, 226, 226);</string>
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>260</y>
+        <y>320</y>
         <width>201</width>
-        <height>81</height>
+        <height>91</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -1384,6 +1430,9 @@ alternate-background-color: rgb(226, 226, 226);</string>
             <property name="text">
              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;-&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
            </widget>
           </item>
           <item>
@@ -1391,12 +1440,18 @@ alternate-background-color: rgb(226, 226, 226);</string>
             <property name="text">
              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;-&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
            </widget>
           </item>
           <item>
            <widget class="QLabel" name="tb_rendaMedia">
             <property name="text">
              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;-&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
             </property>
            </widget>
           </item>
@@ -1425,7 +1480,7 @@ alternate-background-color: rgb(226, 226, 226);</string>
      <x>0</x>
      <y>0</y>
      <width>511</width>
-     <height>25</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuMenu">
@@ -1472,7 +1527,6 @@ alternate-background-color: rgb(226, 226, 226);</string>
   <tabstop>rb_casa</tabstop>
   <tabstop>rb_apt</tabstop>
   <tabstop>rb_comodo</tabstop>
-  <tabstop>rb_outro</tabstop>
   <tabstop>le_outro</tabstop>
   <tabstop>rb_sim_ee</tabstop>
   <tabstop>rb_nao_ee</tabstop>
