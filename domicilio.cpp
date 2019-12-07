@@ -93,6 +93,8 @@ void Domicilio::setQnt_pessoas(int value)
         qnt_pessoas = 1; // Impede de adicionar famílias com 0 pessoas
     }
 
+    densidade = definirDensidade();
+
 }
 
 double Domicilio::getRenda() const
@@ -103,6 +105,7 @@ double Domicilio::getRenda() const
 void Domicilio::setRenda(double value)
 {
     renda = value;
+    gpSocial = definirGrupoSocial();
 }
 
 QString Domicilio::definirDensidade()
@@ -122,13 +125,13 @@ QString Domicilio::definirGrupoSocial()
 {
     float renda_capita = (float)renda/qnt_pessoas;
 
-    if(renda_capita <= 81){
+    if(renda_capita <= 172){
         return "Extremamente pobre";
     }else{
-        if(renda_capita <= 162){
+        if(renda_capita <= 300){
             return "Pobre";
         }else{
-            if(renda_capita <= 291){
+            if(renda_capita <= 500){
                 return "Vulnerável";
             }else{
                return "Fora de risco";
@@ -149,6 +152,16 @@ Domicilio::Domicilio(QString c, QString n, QString t, QString nt, QString e, QSt
     setLixo(l);
     setQnt_pessoas(p);
     setRenda(r);
+}
+
+QString Domicilio::getGpSocial() const
+{
+    return gpSocial;
+}
+
+QString Domicilio::getDensidade() const
+{
+    return densidade;
 }
 
 Domicilio::Domicilio()

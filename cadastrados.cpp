@@ -1,5 +1,15 @@
 #include "cadastrados.h"
 
+QVector<Domicilio> Cadastrados::getLista() const
+{
+    return lista;
+}
+
+void Cadastrados::setObjeto(int l, Domicilio d)
+{
+    lista[l] = d;
+}
+
 Cadastrados::Cadastrados(){}
 
 void Cadastrados::inserirDomicilio(Domicilio d){
@@ -76,7 +86,7 @@ int Cadastrados::getComodosCadastrados()
 {
     int cont = 0;
     for(int i = 0; i < lista.size(); i++){
-        if(lista[i].getTipo()== "Cômodo"){
+        if(lista[i].getTipo()== "Comodo"){
             cont++;
         }
     }
@@ -87,7 +97,7 @@ int Cadastrados::getOutros()
 {
     int cont = 0;
     for(int i = 0; i < lista.size(); i++){
-        if((lista[i].getTipo() != "Casa") and (lista[i].getTipo() != "Apartamento") and (lista[i].getTipo() != "Cômodo")){
+        if((lista[i].getTipo() != "Casa") and (lista[i].getTipo() != "Apartamento") and (lista[i].getTipo() != "Comodo")){
             cont++;
         }
     }
@@ -257,7 +267,7 @@ bool Cadastrados::carregarDados(QString file)
 
 bool Cadastrados::salvarDados(QString file)
 {
-    QFile arquivo(file + ".csv");
+    QFile arquivo(file);
     arquivo.open(QIODevice::WriteOnly);
 
     if(arquivo.isOpen())

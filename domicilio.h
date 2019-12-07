@@ -15,6 +15,8 @@ private:
     QString agua;
     QString esgoto;
     QString lixo;
+    QString gpSocial;
+    QString densidade;
     int qnt_pessoas;
     double renda;
 
@@ -47,6 +49,8 @@ public:
 
     QString definirDensidade();
     QString definirGrupoSocial();
+    QString getGpSocial() const;
+    QString getDensidade() const;
 };
 
 #endif // DOMICILIO_H

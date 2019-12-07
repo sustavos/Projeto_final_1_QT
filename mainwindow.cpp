@@ -1,10 +1,13 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+
     ui->setupUi(this);
 
     ui->tw_tabela->setColumnWidth(0,110);
@@ -38,7 +41,7 @@ void MainWindow::on_btn_cadastrar_clicked()
             tipo = "Apartamento";
             numApt = ui->le_complemento->text();
         }else if(ui->rb_comodo->isChecked()){
-            tipo = "Cômodo";
+            tipo = "Comodo";
             numApt = "-";
         }else if(ui->rb_outro->isChecked()){
             tipo = ui->le_outro->text();
@@ -256,14 +259,18 @@ void MainWindow::on_actionCarregar_Arquivo_triggered()
         QMessageBox::information(this,"Carregar Arquivo","Arquivo carregado com sucesso!");
 
     }
+
+    atualizarEstatisticas();
 }
 
 void MainWindow::on_tw_tabela_cellDoubleClicked(int row, int column)
 {
+    ui->tw_tabela->setRowCount(0);
     EditDialog act;
 
     act.addObjeto(cadastrados[row]);
-    qDebug() << cadastrados[row].getCep();
+
+    act.atualizarLabel();
     act.setWindowTitle("Editar Domicílio");
     act.setModal(true);
     act.exec();
@@ -272,25 +279,34 @@ void MainWindow::on_tw_tabela_cellDoubleClicked(int row, int column)
 
     atualizarTabela();
 
-    if(act.getApagar()){
-
+    if(act.getApagar())
+    {
         cadastrados.erase(row);
-    }
-
-    if(act.getNovo()){
-        cadastrados[row]=act.getObjeto();
         atualizarTabela();
     }
+
+    if(act.getNovo())
+    {
+        cadastrados.setObjeto(row, act.getObjeto());
+        atualizarTabela();
+    }
+
+    atualizarEstatisticas();
 }
 
 void MainWindow::atualizarTabela()
 {
     ui->tw_tabela->setRowCount(0);
 
-    for(int i = 0; i < cadastrados.size(); i++){
+    for(auto print : cadastrados.getLista()){
 
-        int qtd_linhas = ui->tw_tabela->rowCount();
-        ui->tw_tabela->insertRow(qtd_linhas);
-        inserirNaTabela(cadastrados[i], qtd_linhas);
+        int linha = ui->tw_tabela->rowCount();
+        ui->tw_tabela->insertRow(linha);
+
+        ui->tw_tabela->setItem(linha,0, new QTableWidgetItem(print.getCep()));
+        ui->tw_tabela->setItem(linha,1, new QTableWidgetItem(print.getNumero()));
+        ui->tw_tabela->setItem(linha,2, new QTableWidgetItem(print.getTipo()));
+        ui->tw_tabela->setItem(linha,3, new QTableWidgetItem(print.getNumApt()));
+
     }
 }

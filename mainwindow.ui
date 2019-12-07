@@ -7,19 +7,19 @@
     <x>0</x>
     <y>0</y>
     <width>511</width>
-    <height>553</height>
+    <height>550</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>0</width>
-    <height>0</height>
+    <width>511</width>
+    <height>550</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>511</width>
-    <height>593</height>
+    <height>550</height>
    </size>
   </property>
   <property name="palette">
@@ -37,18 +37,18 @@
      <colorrole role="Base">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>73</red>
-        <green>137</green>
-        <blue>255</blue>
+        <red>143</red>
+        <green>180</green>
+        <blue>240</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>73</red>
-        <green>137</green>
-        <blue>255</blue>
+        <red>143</red>
+        <green>180</green>
+        <blue>240</blue>
        </color>
       </brush>
      </colorrole>
@@ -66,18 +66,18 @@
      <colorrole role="Base">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>73</red>
-        <green>137</green>
-        <blue>255</blue>
+        <red>143</red>
+        <green>180</green>
+        <blue>240</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>73</red>
-        <green>137</green>
-        <blue>255</blue>
+        <red>143</red>
+        <green>180</green>
+        <blue>240</blue>
        </color>
       </brush>
      </colorrole>
@@ -95,18 +95,18 @@
      <colorrole role="Base">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>73</red>
-        <green>137</green>
-        <blue>255</blue>
+        <red>143</red>
+        <green>180</green>
+        <blue>240</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>73</red>
-        <green>137</green>
-        <blue>255</blue>
+        <red>143</red>
+        <green>180</green>
+        <blue>240</blue>
        </color>
       </brush>
      </colorrole>
@@ -160,12 +160,12 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(73, 137, 255);
-border-color: rgb(73, 137, 255);
+     <string notr="true">background-color: rgb(143, 180, 240);
+border-color: rgb(143, 180, 240);
 </string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tab_cadastro">
      <attribute name="title">
@@ -1487,8 +1487,8 @@ alternate-background-color: rgb(226, 226, 226);</string>
     <property name="title">
      <string>Menu</string>
     </property>
-    <addaction name="actionCarregar_Arquivo"/>
     <addaction name="actionSalvar_Arquivo"/>
+    <addaction name="actionCarregar_Arquivo"/>
    </widget>
    <addaction name="menuMenu"/>
   </widget>

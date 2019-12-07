@@ -6,8 +6,10 @@ EditDialog::EditDialog(QWidget *parent) :
     ui(new Ui::EditDialog)
 {
     ui->setupUi(this);
+
     apagar = false;
     novo = false;
+
 }
 
 EditDialog::~EditDialog()
@@ -29,7 +31,7 @@ void EditDialog::addObjeto()
         tipo = "Apartamento";
         numApt = ui->le_complemento->text();
     }else if(ui->rb_comodo->isChecked()){
-        tipo = "Cômodo";
+        tipo = "Comodo";
         numApt = "-";
     }else if(ui->rb_outro->isChecked()){
         tipo = ui->le_outro->text();
@@ -70,7 +72,10 @@ void EditDialog::addObjeto()
     objeto.setLixo(colet);
 
     objeto.setQnt_pessoas(ui->le_numMembros->text().toInt());
+    ui->lb_densidade->setText(objeto.getDensidade());
+
     objeto.setRenda(ui->le_renda->text().toDouble());
+    ui->lb_gpsocial->setText(objeto.getGpSocial());
 }
 
 void EditDialog::addObjeto(Domicilio d)
@@ -87,7 +92,7 @@ void EditDialog::addObjeto(Domicilio d)
             ui->rb_apt->setChecked(true);
             ui->le_complemento->setText(d.getNumApt());
         }else{
-            if(d.getTipo() == "Cômodo"){
+            if(d.getTipo() == "Comodo"){
                 ui->rb_comodo->setChecked(true);
             }else{
                 ui->rb_outro->setChecked(true);
@@ -132,7 +137,7 @@ Domicilio EditDialog::getObjeto() const
 void EditDialog::on_btn_salvar_clicked()
 {
     addObjeto();
-    setNovo(true);
+    novo = true;
 
     close();
 }
@@ -158,6 +163,12 @@ void EditDialog::setNovo(bool value)
     novo = value;
 }
 
+void EditDialog::atualizarLabel()
+{
+    ui->lb_densidade->setText(objeto.getDensidade());
+    ui->lb_gpsocial->setText(objeto.getGpSocial());
+}
+
 bool EditDialog::getApagar() const
 {
     return apagar;
@@ -166,4 +177,15 @@ bool EditDialog::getApagar() const
 void EditDialog::setApagar(bool value)
 {
     apagar = value;
+}
+void EditDialog::on_le_numMembros_editingFinished()
+{
+    objeto.setQnt_pessoas(ui->le_numMembros->text().toInt());
+    ui->lb_densidade->setText(objeto.getDensidade());
+}
+
+void EditDialog::on_le_renda_editingFinished()
+{
+    objeto.setRenda(ui->le_renda->text().toDouble());
+    ui->lb_gpsocial->setText(objeto.getGpSocial());
 }

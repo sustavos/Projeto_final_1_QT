@@ -48,6 +48,10 @@ public:
     void erase(int i);
     int size();
     Domicilio operator[](int indice);
+
+    QVector<Domicilio> getLista() const;
+    void setObjeto(int l, Domicilio d);
+
 };
 
 bool compararCEP(Domicilio d1, Domicilio d2);
